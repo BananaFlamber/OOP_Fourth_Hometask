@@ -2,7 +2,7 @@ package org.example.lesson4.hw;
 
 import java.util.List;
 
-public class Box<Fruit> {
+public class Box<T extends Fruit> {
 
     // Реализовать хранение фруктов в коробке.
     // Должны быть доступны следующие возможности
@@ -26,9 +26,11 @@ public class Box<Fruit> {
         return result;
     }
 
-    public void moveTo(Box<? super Fruit> box) {
-        // TODO: 24.01.2023
-        // Пересыпать фрукты из текущей коробки в anotherBox
+
+    public void moveTo(List<? extends T> source, List<? super T> target) {
+        target.addAll(source);
+        source.clear();
+
     }
 
 }
